@@ -3,9 +3,6 @@
 - 本プログラムは、気象庁が公開している、[地震月報(カタログ編)の震度データや震度観測点一覧](https://www.data.jma.go.jp/eqev/data/bulletin/shindo.html)を読みやすい形式（GISデータ）に変換するプログラムです。
 - オープンソースソフトウェアで構築
 
-## デモサイト
-- （作成中）
-
 ### データの入手
 - 以下の気象庁のサイトより地震月報(カタログ編)の震度データ（zip形式）や震度観測点一覧を入手します。
 - https://www.data.jma.go.jp/eqev/data/bulletin/shindo.html
@@ -42,6 +39,9 @@
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo.csv`,199.3MB
 #### 出力結果
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
+
+## デモサイト
+- （作成中）
 
 ## ライセンス
 本データセットは[CC-BY-4.0](https://github.com/shi-works/traffic-accident-pmtiles/blob/main/LICENSE)で提供されます。使用の際には本レポジトリへのリンクを提示してください。
