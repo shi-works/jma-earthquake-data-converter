@@ -18,6 +18,14 @@
 `https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.dat`
 #### 出力結果
 `https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
+
+### 震源データ及び震度データの抽出（dat_converter.py）
+- 震度データ（datファイル）から震源データ（csvファイル）及び震度データ（csvファイル）を抽出するプログラムです。
+#### 使用データ
+- 震度データ（datファイル）一式
+#### 出力結果
+`https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
+
 ## ライセンス
 本データセットは[CC-BY-4.0](https://github.com/shi-works/traffic-accident-pmtiles/blob/main/LICENSE)で提供されます。使用の際には本レポジトリへのリンクを提示してください。
 
