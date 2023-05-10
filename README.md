@@ -18,7 +18,8 @@
 
 ## 震源データ及び震度データの抽出（dat_converter.py）
 - 震度データ（datファイル）から震源データ（csvファイル）及び震度データ（csvファイル）を抽出するプログラムです。
-- ※震源データは１番上のレコードが代表値（採用値）となっており、本プログラムでは代表値（採用値）のみ出力します。
+- 震源データは１番上のレコードが代表値（採用値）となっており、本プログラムでは代表値（採用値）のみ出力します。
+- 震源データの西暦、月、日、時、分、秒より地震IDを作成し、震源データ及び震度データそれぞれに付与しています。
 ### 使用データ
 - 震度データ（datファイル）一式
 ### 出力結果
@@ -29,6 +30,7 @@
 
 ## 震源データを読みやすい形式へ変換（hypocenter_converter.py）
 - 震源データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
+- 震源データの西暦、月、日、時、分、秒よりDatTime及びUnixTimeを作成し、付与しています。
 ### 使用データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter.csv`,28.7MB
 ### 出力結果
@@ -36,8 +38,11 @@
 
 ## 震度データを読みやすい形式へ変換（shindo_converter.py）
 - 震度データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
+- 震度データは、観測点番号をキーにして、震度観測点一覧の震度発表名称、観測点緯度及び観測点経度を付与しています。
+- 震度データの地震ID（年月）と発現日、発現時、発現分、発現秒よりDatTimeを作成し、付与しています。
 ### 使用データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo.csv`,199.3MB
+`https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
 ### 出力結果
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
 
