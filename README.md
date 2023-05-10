@@ -50,7 +50,7 @@
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
 
 ## 震源データ及び震度データをGISデータ（FaltGeobuf形式及びGeoParquet形式）へ変換
-- 震度データ及び震源データのGISデータ（FaltGeobuf形式及びGeoParquet形式）への変換には[QGIS（バージョン3.28.4）](https://qgis.org/ja/site/)を使用します。
+- 震源データ及び震度データのGISデータ（FaltGeobuf形式及びGeoParquet形式）への変換には[QGIS（バージョン3.28.4）](https://qgis.org/ja/site/)を使用します。
 ### 使用データ
 #### 震源データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.csv`,19.6MB
