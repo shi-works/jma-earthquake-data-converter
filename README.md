@@ -90,6 +90,7 @@ FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)へ�
 - （作成中）
 
 ## ライセンス
+本プログラムは[MITライセンス](https://github.com/shi-works/jma-earthquake-data-converter/blob/main/LICENSE)で提供されます。
 本データセットはCC-BY-4.0で提供されます。使用の際には本レポジトリへのリンクを提示してください。
 
 また、本データセットは、気象庁が公開している、地震月報(カタログ編)の震度データ及び震度観測点一覧を加工して作成したものです。本データセットの使用・加工にあたっては、[気象庁の利用規約](https://www.jma.go.jp/jma/kishou/info/coment.html)を必ずご確認ください。
