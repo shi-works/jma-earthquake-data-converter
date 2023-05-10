@@ -31,6 +31,7 @@
 ## 震源データを読みやすい形式へ変換（hypocenter_converter.py）
 - 震源データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
 - 震源データの西暦、月、日、時、分、秒よりDatTime及びUnixTimeを作成し、付与しています。
+- 震源データの緯度(度)、緯度(分)、経度(度)、経度(分)よりLatitude、Longitudeを作成しています。
 ### 使用データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter.csv`,28.7MB
 ### 出力結果
