@@ -80,7 +80,7 @@ FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)へ�
 - 0-14
 
 ### 属性
-- 震源データ及び震度デーの属性はそのまま生かしています。
+- 震源データ及び震度データの属性はそのまま生かしています。
 
 ### PMTiles Viewer
 - PMTilesはPMTiles Viewerで閲覧することができます。
