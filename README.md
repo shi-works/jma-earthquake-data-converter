@@ -24,7 +24,24 @@
 #### 使用データ
 - 震度データ（datファイル）一式
 #### 出力結果
-`https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
+##### 震源データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter.csv`,28.7MB
+##### 震度データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo.csv`,199.3MB
+
+### 震源データを読みやすい形式へ変換（hypocenter_converter.py）
+- 震源データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
+#### 使用データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter.csv`,28.7MB
+#### 出力結果
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.csv`,19.6MB
+
+### 震度データを読みやすい形式へ変換（shindo_converter.py）
+- 震度データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
+#### 使用データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo.csv`,199.3MB
+#### 出力結果
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
 
 ## ライセンス
 本データセットは[CC-BY-4.0](https://github.com/shi-works/traffic-accident-pmtiles/blob/main/LICENSE)で提供されます。使用の際には本レポジトリへのリンクを提示してください。
