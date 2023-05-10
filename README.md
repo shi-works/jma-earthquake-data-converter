@@ -14,7 +14,10 @@
 
 ### 震度観測点一覧を読みやすい形式へ変換（code_p2csv.py）
 - 震度観測点一覧（datファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
-
+#### 使用データ
+`https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.dat`
+#### 出力結果
+`https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
 ## ライセンス
 本データセットは[CC-BY-4.0](https://github.com/shi-works/traffic-accident-pmtiles/blob/main/LICENSE)で提供されます。使用の際には本レポジトリへのリンクを提示してください。
 
