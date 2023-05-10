@@ -49,7 +49,7 @@
 ### 出力結果
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
 
-## 震源データ及び震度データをGISデータ（FaltGeobuf形式）へ変換
+## 震源データ及び震度データをGISデータ（FaltGeobuf形式及びGeoParquet形式）へ変換
 - 震度データ及び震源データのGISデータ（FaltGeobuf形式）への変換にはQGISを使用します。
 ### 使用データ
 #### 震源データ
