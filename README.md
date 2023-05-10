@@ -32,6 +32,7 @@
 - 震源データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
 - 震源データの西暦、月、日、時、分、秒よりDatTime及びUnixTimeを作成し、付与しています。
 - 震源データの緯度(度)、緯度(分)、経度(度)、経度(分)よりLatitude、Longitudeを作成しています。
+- 属性情報は必要最小限にしていますので適宜改変してください。
 ### 使用データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter.csv`,28.7MB
 ### 出力結果
@@ -41,6 +42,7 @@
 - 震度データ（csvファイル）を読みやすい形式（csvファイル）に変換するプログラムです。
 - 震度データは、観測点番号をキーにして、震度観測点一覧の震度発表名称、観測点緯度及び観測点経度を付与しています。
 - 震度データの地震ID（年月）と発現日、発現時、発現分、発現秒よりDatTimeを作成し、付与しています。
+- 属性情報は必要最小限にしていますので適宜改変してください。
 ### 使用データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo.csv`,199.3MB
 `https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
