@@ -54,11 +54,17 @@
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.csv`,19.6MB
 #### 震度データ
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.csv`,180.2MB
-### 出力結果（FaltGeobuf形式）
+### 出力結果（FaltGeobuf形式及びGeoParquet形式）
 #### 震源データ
+##### FaltGeobuf形式
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.fgb`,51.6MB
+##### GeoParquet形式
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.parquet`,8.5MB
 #### 震度データ
+##### FaltGeobuf形式
 `https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.fgb`,453.8MB
+##### GeoParquet形式
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.parquet`,29.8MB
 
 ## FaltGeobuf形式からPMTiles形式への変換
 FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)への変換には[feltのtippecanoe](https://github.com/felt/tippecanoe)を使用します。
