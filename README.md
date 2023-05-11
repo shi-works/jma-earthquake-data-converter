@@ -100,6 +100,13 @@ FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)へ�
 - https://shi-works.github.io/jma-earthquake-data-converter/
 - サンプル画像
 ![image](https://github.com/shi-works/jma-earthquake-data-converter/assets/71203808/1c06cc86-f8a3-48ca-8971-1de10550a864)
+### 使用データ
+#### 震源データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles`,177.4MB
+#### 震度データ
+`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles`,541.7MB
+#### 人口集中地区（2020年）
+`https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles`,12.7MB
 
 ## ライセンス
 本プログラムは[MITライセンス](https://github.com/shi-works/jma-earthquake-data-converter/blob/main/LICENSE)で提供されます。  
