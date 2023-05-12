@@ -108,6 +108,13 @@ FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)へ�
 #### 人口集中地区（2020年）
 `https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles`,12.7MB
 
+## データ使用上の注意
+- データを使用するにあたり、下記のデータフォーマットや気象庁の地震カタログの解説を必ずご確認ください。
+- データフォーマット  
+https://www.data.jma.go.jp/svd/eqev/data/bulletin/data/shindo/format_j.pdf
+- 気象庁の地震カタログの解説  
+https://www.data.jma.go.jp/svd/eqev/data/bulletin/data/hypo/relocate.html
+
 ## ライセンス
 本プログラムは[MITライセンス](https://github.com/shi-works/jma-earthquake-data-converter/blob/main/LICENSE)で提供されます。  
 本データセットはCC-BY-4.0で提供されます。使用の際には本レポジトリへのリンクを提示してください。
