@@ -102,11 +102,11 @@ FaltGeobuf形式から[PMTiles形式](https://github.com/protomaps/PMTiles)へ�
 ![image](https://github.com/shi-works/jma-earthquake-data-converter/assets/71203808/1c06cc86-f8a3-48ca-8971-1de10550a864)
 ### 使用データ
 #### 震源データ
-`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles`,177.4MB
+`https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles`,177.4MB
 #### 震度データ
-`https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles`,541.7MB
+`https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles`,541.7MB
 #### 人口集中地区（2020年）
-`https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles`,12.7MB
+`https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles`,12.7MB
 
 ## データ使用上の注意
 - データを使用するにあたり、下記のデータフォーマットや気象庁の地震カタログの解説を必ずご確認ください。
