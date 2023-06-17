@@ -44,7 +44,7 @@
 - 震度データの地震ID（年月）と発現日、発現時、発現分、発現秒よりDatTimeを作成し、付与しています。
 - 属性情報は必要最小限にしていますので適宜改変してください。
 ### 使用データ
-`https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo.csv`,199.3MB
+`https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo.csv`,199.3MB  
 `https://github.com/shi-works/jma-earthquake-data-converter/blob/main/data/code_p.csv`
 ### 出力結果
 `https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.csv`,180.2MB
