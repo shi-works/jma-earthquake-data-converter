@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>気象庁 震度マップ（直近M6.0以上または震度7以上）</title>
+    <title>気象庁 震度マップ（直近）</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <!-- MapLibre -->
     <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
@@ -185,16 +185,16 @@
     </div>
     -->
     <div id="earthquake">
-        <label><b><big>気象庁 震度マップ（直近M6.0以上・震度7以上）</big></b></label><br>
+        <label><b><big>気象庁 震度マップ（直近）</big></b></label><br>
         <label><b>表示する地震の種類</b></label><br>
         <select id="id" onchange="SelectMap()">
-            <option value="19950117054651">大阪湾,M7,最大震度7,深さ16.06km</option>
-            <option value="20041023175600">新潟県中越地方,M6.8,最大震度7,深さ13.08km</option>
-            <option value="20110311144618">三陸沖,M9,最大震度7,深さ23.74km</option>
-            <option value="20160414212634">熊本県熊本地方,M6.5,最大震度7,深さ11.39km</option>
-            <option value="20160416012505">熊本県熊本地方,M7.3,最大震度7,深さ12.45km</option>
-            <option value="20180618075834">大阪府北部,M6.1,最大震度6弱,深さ12.98km</option>
-            <option value="20180906030759">胆振地方中東部,M6.7,最大震度7,深さ37.04km</option>
+            <option value="19950117054651">1995年01月17日,大阪湾,M7,最大震度7,深さ16km</option>
+            <option value="20041023175600">2004年10月23日,新潟県中越地方,M6.8,最大震度7,深さ13km</option>
+            <option value="20110311144618">2011年03月11日,三陸沖,M9,最大震度7,深さ23km</option>
+            <option value="20160414212634">2016年04月14日,熊本県熊本地方,M6.5,最大震度7,深さ11km</option>
+            <option value="20160416012505">2016年04月16日,熊本県熊本地方,M7.3,最大震度7,深さ12km</option>
+            <option value="20180618075834">2018年06月18日,大阪府北部,M6.1,最大震度6弱,深さ12km</option>
+            <option value="20180906030759">2018年09月06日,胆振地方中東部,M6.7,最大震度7,深さ37km</option>
         </select>
     </div>
     <div id='legend-1' style="display:block;" class='legend-1'>
