@@ -188,6 +188,7 @@
         <label><b><big>気象庁 震度マップ（直近）</big></b></label><br>
         <label><b>表示する地震の種類</b></label><br>
         <select id="id" onchange="SelectMap()">
+            <option value="19930712221711">1993年07月12日,北海道南西沖,M7.8,最大震度5,深さ35km</option>
             <option value="19950117054651">1995年01月17日,大阪湾,M7,最大震度7,深さ16km</option>
             <option value="20041023175600">2004年10月23日,新潟県中越地方,M6.8,最大震度7,深さ13km</option>
             <option value="20110311144618">2011年03月11日,三陸沖,M9,最大震度7,深さ24km</option>
@@ -298,9 +299,9 @@
         let protocol = new pmtiles.Protocol();
         maplibregl.addProtocol("pmtiles", protocol.tile);
 
-        let PMTILES_HYPO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles";
-        let PMTILES_SHINDO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles";
-        let PMTILES_DID_URL = "https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles";
+        let PMTILES_HYPO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles";
+        let PMTILES_SHINDO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles";
+        let PMTILES_DID_URL = "https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles";
 
         const ph = new pmtiles.PMTiles(PMTILES_HYPO_URL)
         const ps = new pmtiles.PMTiles(PMTILES_SHINDO_URL)
@@ -315,7 +316,7 @@
             container: 'map',
             // style: './dark.json',
             style: 'https://tile2.openstreetmap.jp/styles/osm-bright/style.json',
-            center: [134.998, 34.553], // 中心座標
+            center: [140.451, 42.666], // 中心座標
             zoom: 7.85, // ズームレベル
             pitch: 0, // 傾き
             hash: true,
@@ -411,7 +412,7 @@
                     'circle-stroke-width': 1, // stroke width of 1 pixel
                     'circle-opacity': 1
                 },
-                'filter': ['==', ['get', '地震ID'], '19950117054651']
+                'filter': ['==', ['get', '地震ID'], '19930712221711']
             });
 
             // 震度ラベル
@@ -450,7 +451,7 @@
                         7.5, 1 // at zoom level 7 and above, opacity will be 1
                     ]
                 },
-                'filter': ['==', ['get', '地震ID'], '19950117054651']
+                'filter': ['==', ['get', '地震ID'], '19930712221711']
             });
 
             // 震源ベクトルタイル
@@ -477,7 +478,7 @@
                     'text-halo-color': 'rgba(255, 255, 0, 1)', // テキストの縁の色
                     'text-halo-width': 2 // テキストの縁の幅
                 },
-                'filter': ['==', ['get', '地震ID'], '19950117054651']
+                'filter': ['==', ['get', '地震ID'], '19930712221711']
             });
 
             /*
@@ -517,6 +518,7 @@
         function getMapCenter(CenterText) {
             const CenterTable = {
                 // キー：id、値：緯度、経度、ズームレベル
+                '19930712221711': [42.666, 140.451, 7.53],
                 '19950117054651': [34.553, 134.998, 7.85],
                 '20041023175600': [37.31, 138.721, 8.29],
                 '20110311144618': [38.398, 141.315, 7.7],
