@@ -299,9 +299,13 @@
         let protocol = new pmtiles.Protocol();
         maplibregl.addProtocol("pmtiles", protocol.tile);
 
-        let PMTILES_HYPO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles";
-        let PMTILES_SHINDO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles";
-        let PMTILES_DID_URL = "https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles";
+        // let PMTILES_HYPO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles";
+        // let PMTILES_SHINDO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles";
+        // let PMTILES_DID_URL = "https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles";
+
+        let PMTILES_HYPO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles";
+        let PMTILES_SHINDO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles";
+        let PMTILES_DID_URL = "https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles";
 
         const ph = new pmtiles.PMTiles(PMTILES_HYPO_URL)
         const ps = new pmtiles.PMTiles(PMTILES_SHINDO_URL)
