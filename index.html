@@ -6,9 +6,9 @@
     <title>気象庁 震度マップ（直近）</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <!-- MapLibre -->
-    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
-    <script src="https://unpkg.com/pmtiles@2.7.0/dist/index.js"></script>
+    <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/pmtiles@2.11.0/dist/index.js"></script>
     <style>
         body {
             margin: 0;
@@ -188,7 +188,8 @@
         <label><b><big>気象庁 震度マップ（直近）</big></b></label><br>
         <label><b>表示する地震の種類</b></label><br>
         <select id="id" onchange="SelectMap()">
-            <option value="19930712221711">1993年07月12日,北海道南西沖,M7.8,最大震度5,深さ35km</option>
+            <option value="19830526115957">1983年05月26日,秋田県沖,M7.8,最大震度5,深さ14km</option>
+            <option value="19930712221711">1993年07月12日,北海道南西沖,M7.7,最大震度5,深さ35km</option>
             <option value="19950117054651">1995年01月17日,大阪湾,M7,最大震度7,深さ16km</option>
             <option value="20030926045007">2003年09月26日,十勝沖,M8.0,最大震度6弱,深さ45km</option>
             <option value="20041023175600">2004年10月23日,新潟県中越地方,M6.8,最大震度7,深さ13km</option>
@@ -297,44 +298,25 @@
         <span style="display: inline-block; margin-left: 5px;">人口集中地区<br>&nbsp;&nbsp;&nbsp;&nbsp;（2020年）</span>
     </div>
     <script type="text/javascript">
-        // add the PMTiles plugin to the maplibregl global.
+        // addProtocolの設定
         let protocol = new pmtiles.Protocol();
         maplibregl.addProtocol("pmtiles", protocol.tile);
 
-        // let PMTILES_HYPO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/hypocenter_convert.pmtiles";
-        // let PMTILES_SHINDO_URL = "https://pmtiles-data.s3.ap-northeast-1.amazonaws.com/jma-earthquake/shindo_convert.pmtiles";
-        // let PMTILES_DID_URL = "https://web-map-maplibre.s3.ap-northeast-1.amazonaws.com/traffic-signal-cycle-map/data/2020_did_ddsw_01-47_JGD2011.pmtiles";
-
-        let PMTILES_HYPO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles";
-        let PMTILES_SHINDO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles";
-        let PMTILES_DID_URL = "https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles";
-
-        const ph = new pmtiles.PMTiles(PMTILES_HYPO_URL)
-        const ps = new pmtiles.PMTiles(PMTILES_SHINDO_URL)
-        const pd = new pmtiles.PMTiles(PMTILES_DID_URL)
-
-        // this is so we share one instance across the JS code and the map renderer
-        protocol.add(ph);
-        protocol.add(ps);
-        protocol.add(pd);
-
+        // マップの初期化
         var map = new maplibregl.Map({
             container: 'map',
             // style: './dark.json',
-            style: 'https://tile2.openstreetmap.jp/styles/osm-bright/style.json',
-            center: [140.451, 42.666], // 中心座標
-            zoom: 7.85, // ズームレベル
-            pitch: 0, // 傾き
+            // style: 'https://tile2.openstreetmap.jp/styles/osm-bright/style.json',
+            style: 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json',
+            center: [140.451, 42.666],
+            zoom: 7.85,
+            pitch: 0,
             hash: true,
-            // 既存Attributionを非表示
             attributionControl: false
         })
 
-        // スケール表示
-        map.addControl(new maplibregl.ScaleControl({
-            maxWidth: 200,
-            unit: 'metric'
-        }), 'bottom-left');
+        // ズーム・回転
+        map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
         // 現在位置表示
         map.addControl(new maplibregl.GeolocateControl({
@@ -344,13 +326,16 @@
             fitBoundsOptions: { maxZoom: 18 },
             trackUserLocation: true,
             showUserLocation: true
-        }), 'bottom-left');
+        }), 'top-right');
 
         // フルスクリーンモードのオンオフ
-        map.addControl(new maplibregl.FullscreenControl(), 'bottom-left');
+        map.addControl(new maplibregl.FullscreenControl(), 'top-right');
 
-        // ズーム・回転
-        map.addControl(new maplibregl.NavigationControl(), 'bottom-left');
+        // スケール表示
+        map.addControl(new maplibregl.ScaleControl({
+            maxWidth: 200,
+            unit: 'metric'
+        }), 'bottom-left');
 
         // Attributionを折りたたみ表示
         map.addControl(new maplibregl.AttributionControl({
@@ -358,11 +343,15 @@
             customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/jma-earthquake-data-converter" target="_blank">Github</a>） '
         }));
 
+        let PMTILES_HYPO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles";
+        let PMTILES_SHINDO_URL = "https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles";
+        let PMTILES_DID_URL = "https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles";
+
         map.on('load', () => {
-            // 人口集中地区ベクトルタイル
+            // 人口集中地区ソース
             map.addSource("did", {
                 type: "vector",
-                url: "pmtiles://" + PMTILES_DID_URL,
+                url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/r2DID/2020_did_ddsw_01-47_JGD2011.pmtiles",
                 attribution: '<a href="https://www.e-stat.go.jp/gis">政府統計の総合窓口[e-Stat] 人口集中地区（2020年）</a>'
             });
 
@@ -378,14 +367,14 @@
                 }
             });
 
-            // 震度ベクトルタイル
+            // 気象庁 震度ソース
             map.addSource("shindo", {
                 type: "vector",
-                url: "pmtiles://" + PMTILES_SHINDO_URL,
+                url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/shindo_convert.pmtiles",
                 attribution: '<a href="https://www.data.jma.go.jp/svd/eqev/data/bulletin/shindo.html">気象庁 地震月報(カタログ編) 震度データを加工して作成</a>'
             });
 
-            // 震度ポイント
+            // 気象庁 震度ポイントレイヤ
             map.addLayer({
                 'id': 'shindo-points-1',
                 'type': 'circle',
@@ -406,22 +395,22 @@
                         '6-', 'rgba(255, 40, 0, 1)',
                         '6+', 'rgba(165, 0, 33, 1)',
                         '7', 'rgba(180, 0, 140, 1)',
-                        'rgba(0, 0, 0, 0)' // fallback color if there's no match
+                        'rgba(0, 0, 0, 0)'
                     ],
                     'circle-radius': [
                         'step',
                         ['zoom'],
-                        5, // default size
-                        7.5, 9 // at zoom level 7 and above, size will be 6
+                        5,
+                        7.5, 9
                     ],
-                    'circle-stroke-color': 'rgba(0, 0, 0, 0.5)', // semi-transparent black stroke
-                    'circle-stroke-width': 1, // stroke width of 1 pixel
+                    'circle-stroke-color': 'rgba(0, 0, 0, 0.5)',
+                    'circle-stroke-width': 1,
                     'circle-opacity': 1
                 },
-                'filter': ['==', ['get', '地震ID'], '19930712221711']
+                'filter': ['==', ['get', '地震ID'], '19830526115957']
             });
 
-            // 震度ラベル
+            // 気象庁 震度ラベルレイヤ
             map.addLayer({
                 'id': 'shindo-labels-1',
                 'type': 'symbol',
@@ -448,75 +437,44 @@
                         '6-', 'rgba(255, 255, 255, 1)',
                         '6+', 'rgba(255, 255, 255, 1)',
                         '7', 'rgba(255, 255, 255, 1)',
-                        'rgba(0, 0, 0, 1)' // fallback color if there's no match
+                        'rgba(0, 0, 0, 1)'
                     ],
                     'text-opacity': [
                         'step',
                         ['zoom'],
-                        0, // default opacity
-                        7.5, 1 // at zoom level 7 and above, opacity will be 1
+                        0,
+                        7.5, 1
                     ]
                 },
-                'filter': ['==', ['get', '地震ID'], '19930712221711']
+                'filter': ['==', ['get', '地震ID'], '19830526115957']
             });
 
-            // 震源ベクトルタイル
+            // 気象庁 震源ソース
             map.addSource("hypo", {
                 type: "vector",
-                url: "pmtiles://" + PMTILES_HYPO_URL,
+                url: "pmtiles://https://xs489works.xsrv.jp/pmtiles-data/jma-earthquake/hypocenter_convert.pmtiles",
                 attribution: '<a href="https://www.data.jma.go.jp/svd/eqev/data/bulletin/shindo.html">気象庁 地震月報(カタログ編) 震度データを加工して作成</a>'
             });
 
-            // 震源ポイント
+            // 気象庁 震源ポイントレイヤ
             map.addLayer({
                 'id': 'hypo-points-1',
                 'type': 'symbol',
                 'source': 'hypo',
                 "source-layer": "hypocenter_convertfgb",
                 'layout': {
-                    'text-field': '×', // シンボルマークに表示される文字
-                    'text-font': ['DIN Offc Pro Bold'], // 使用するフォント
-                    'text-size': 50, // 文字サイズ
-                    'text-allow-overlap': true // 他の要素との重なりを許可
+                    'text-field': '×',
+                    'text-font': ['DIN Offc Pro Bold'],
+                    'text-size': 50,
+                    'text-allow-overlap': true
                 },
                 'paint': {
-                    'text-color': 'rgba(255, 0, 0, 1)', // シンボルマークの色
-                    'text-halo-color': 'rgba(255, 255, 0, 1)', // テキストの縁の色
-                    'text-halo-width': 2 // テキストの縁の幅
+                    'text-color': 'rgba(255, 0, 0, 1)',
+                    'text-halo-color': 'rgba(255, 255, 0, 1)',
+                    'text-halo-width': 2
                 },
-                'filter': ['==', ['get', '地震ID'], '19930712221711']
+                'filter': ['==', ['get', '地震ID'], '19830526115957']
             });
-
-            /*
-            // 震源ラベル
-            map.addLayer({
-                'id': 'hypo-labels-1',
-                'type': 'symbol',
-                'source': 'hypo',
-                "source-layer": "hypocenter_convertfgb",
-                'layout': {
-                    'text-field': ['format',
-                        ['get', '震央地名'], {},
-                        ',', {},
-                        'M', {},
-                        ['get', 'マグニチュード1'], { 'font-scale': 0.9 },
-                        ',', {},
-                        '最大震度', {},
-                        ['get', '最大震度'], { 'font-scale': 0.9 }
-                    ], // シンボルマークに震央地名とマグニチュード1を表示
-                    'text-font': ['DIN Offc Pro Bold'], // 使用するフォント
-                    'text-size': 14, // 文字サイズ
-                    'text-allow-overlap': true, // 他の要素との重なりを許可
-                    'text-offset': [2, -2] // x方向に1、y方向に-1オフセット
-                },
-                'paint': {
-                    'text-color': 'rgba(255, 0, 0, 1)', // シンボルマークの色
-                    'text-halo-color': 'rgba(255, 255, 255, 1)', // ラベルの縁の色
-                    'text-halo-width': 2 // ラベルの縁の幅
-                },
-                'filter': ['==', ['get', '地震ID'], '19950117054651']
-            });
-            */
 
         });
 
@@ -524,6 +482,7 @@
         function getMapCenter(CenterText) {
             const CenterTable = {
                 // キー：id、値：緯度、経度、ズームレベル
+                '19830526115957': [39.934, 140.283, 7.65],
                 '19930712221711': [42.666, 140.451, 7.53],
                 '19950117054651': [34.553, 134.998, 7.85],
                 '20030926045007': [42.639, 143.221, 7.69],
@@ -562,7 +521,7 @@
                 zoom: zoomlevel
             });
 
-            // 震度ポイント
+            // 気象庁 震度ポイントレイヤ
             map.addLayer({
                 'id': 'shindo-points-1',
                 'type': 'circle',
@@ -598,7 +557,7 @@
                 'filter': ['==', ['get', '地震ID'], id]
             });
 
-            // 震度ラベル
+            // 気象庁 震度ラベルレイヤ
             map.addLayer({
                 'id': 'shindo-labels-1',
                 'type': 'symbol',
@@ -637,7 +596,7 @@
                 'filter': ['==', ['get', '地震ID'], id]
             });
 
-            // 震源ポイント
+            // 気象庁 震源ポイントレイヤ
             map.addLayer({
                 'id': 'hypo-points-1',
                 'type': 'symbol',
@@ -670,7 +629,7 @@
             }
         }
 
-        // クリック時のポップアップ表示
+        // 気象庁 震源クリック時のポップアップ表示
         map.on('click', 'hypo-points-1', (e) => {
             var lng = e.lngLat.lng;
             var lat = e.lngLat.lat;
@@ -717,7 +676,7 @@
                 .addTo(map);
         });
 
-        // クリック時のポップアップ表示
+        // 気象庁 震度クリック時のポップアップ表示
         map.on('click', 'shindo-points-1', (e) => {
             var lng = e.lngLat.lng;
             var lat = e.lngLat.lat;
